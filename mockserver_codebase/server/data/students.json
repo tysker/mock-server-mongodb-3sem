@@ -1,0 +1,154 @@
+[
+  {
+    "student": {
+      "name": "Genia Olivares",
+      "birthday": "1985-05-06",
+      "email": "dulciejohansen1370@hotmail.com",
+      "mobil": 123456,
+      "gender": "male",
+      "address": {
+        "street": "3809 Raynham Road",
+        "city": "Monterey",
+        "zipCode": "SP90 9CJ"
+      }
+    },
+    "education": {
+      "name": "datamatiker",
+      "startDate": "2022-08-01",
+      "endDate": "2024-01-31"
+    }
+  },
+  {
+    "student": {
+      "name": "Wendi Macklin ",
+      "birthday": "1996-03-08",
+      "email": "thaddeus75825@independently.com",
+      "mobil": 5848962,
+      "gender": "female",
+      "address": {
+        "street": "7255 Croton Street",
+        "city": "South Bend",
+        "zipCode": "BB19 6UZ"
+      }
+    },
+    "education": {
+      "name": "multimedia",
+      "startDate": "2021-08-01",
+      "endDate": "2023-06-31"
+    }
+  },
+  {
+    "student": {
+      "name": "Garret Irizarry",
+      "birthday": "1995-11-14",
+      "email": "nicholasgarris21@gmail.com",
+      "mobil": 872365,
+      "gender": "male",
+      "address": {
+        "street": "9204 Chetwyn",
+        "city": "Medford",
+        "zipCode": "TW85 3KK"
+      }
+    },
+    "education": {
+      "name": "webdesign",
+      "startDate": "2021-08-01",
+      "endDate": "2023-06-31"
+    }
+  },
+  {
+    "student": {
+      "name": "Bonnie Neal",
+      "birthday": "1999-02-05",
+      "email": "roselinebone@hotmail.com",
+      "mobil": 753159,
+      "gender": "female",
+      "address": {
+        "street": "4758 Dobhill Lane",
+        "city": "Fresno",
+        "zipCode": "MK25 2LY"
+      }
+    },
+    "education": {
+      "name": "datamatiker",
+      "startDate": "2022-08-01",
+      "endDate": "2024-01-31"
+    }
+  },
+  {
+    "student": {
+      "name": "Hobert Putnam",
+      "birthday": "2002-12-06",
+      "email": "collette67@advertisements.com",
+      "mobil": 7755264,
+      "gender": "male",
+      "address": {
+        "street": "2033 Wainwright",
+        "city": "Scranton",
+        "zipCode": "WC01 0DJ"
+      }
+    },
+    "education": {
+      "name": "webdesign",
+      "startDate": "2021-08-01",
+      "endDate": "2023-06-31"
+    }
+  },
+  {
+    "student": {
+      "name": "Alyssa Humes",
+      "birthday": "2001-01-25",
+      "email": "nanci_kraus386@hotmail.com",
+      "mobil": 882244,
+      "gender": "other",
+      "address": {
+        "street": "5446 Kingsbridge Avenue",
+        "city": "Boise City",
+        "zipCode": "S8 2TA"
+      }
+    },
+    "education": {
+      "name": "multimedia",
+      "startDate": "2021-08-01",
+      "endDate": "2023-06-31"
+    }
+  },
+  {
+    "student": {
+      "name": "Jesenia Salisbury",
+      "birthday": "2002-11-25",
+      "email": "elliot_qualls97@yahoo.com",
+      "mobil": 143388,
+      "gender": "female",
+      "address": {
+        "street": "8411 Ansdell Lane",
+        "city": "Bridgeport",
+        "zipCode": "PO8 8MN"
+      }
+    },
+    "education": {
+      "name": "datamatiker",
+      "startDate": "2021-08-01",
+      "endDate": "2023-06-31"
+    }
+  },
+  {
+    "student": {
+      "name": "Dick Robledo",
+      "birthday": "1999-02-20",
+      "email": "janean2871@hotmail.com",
+      "mobil": 888888,
+      "gender": "male",
+      "address": {
+        "street": "6641 Brendon",
+        "city": "Anchorage",
+        "zipCode": "WS6 0PA"
+      }
+    },
+    "education": {
+      "name": "datamatiker",
+      "startDate": "2021-08-01",
+      "endDate": "2023-06-31"
+    }
+  }
+]

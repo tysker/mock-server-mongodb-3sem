@@ -1,0 +1,335 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: student
+  description: Mocks a rest server for retrieving json data for education purposes
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/tysker/student/1.0.0
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/tysker/json_mockserver_api/1.0.0
+tags: 
+  - name: Student
+    description: Student json data
+paths:
+  /api/v1/students:
+  
+  ########################        
+  ##  GET ALL STUDENTS  ##
+  ########################
+  
+    get:
+      tags: 
+        - Student
+      description: Returns a list of students
+      responses:
+        200:
+          description: Returns a list of all current students
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                 allOf: 
+                  - $ref: '#/components/schemas/Student'
+                  - type: object
+                    properties:
+                      studentAge:
+                        type: string
+                        example: 27
+        404:
+          $ref: '#/components/responses/404ApiResponds'
+        500:
+          $ref: '#/components/responses/500ApiError'
+          
+  ########################        
+  ## POST A NEW STUDENT ##
+  ########################
+  
+    post:
+      tags: 
+        - Student
+      description: Add a student to the list
+      requestBody:
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/Student'
+      responses:
+        201:
+          $ref: '#/components/responses/201ApiResponds'
+        500:
+          $ref: '#/components/responses/500ApiError'
+          
+  ########################        
+  ## GET STUDENT BY ID  ##
+  ########################
+
+  /api/v1/students/{studentId}:
+    get:
+      tags: 
+        - Student
+      parameters: 
+        - in: path
+          name: studentId
+          required: true
+          schema:
+            type: integer
+            example: 63845d0cbe895fdf791b1e86
+      responses:
+        200:
+          description: Returns a student object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+
+        404:
+          $ref: '#/components/responses/404ApiResponds'
+        500:
+          $ref: '#/components/responses/500ApiError'
+
+  ########################        
+  ##   DELETE STUDENT   ##
+  ########################
+  
+    delete:
+      tags: 
+        - Student
+      parameters: 
+        - in: path
+          name: studentId
+          required: true
+          schema:
+            type: integer
+            example: 63845d0cbe895fdf791b1e86
+      responses:
+        204:
+          $ref: '#/components/responses/204ApiResponds'
+        500:
+          $ref: '#/components/responses/500ApiError'
+
+  ########################        
+  ##   PATCH STUDENT    ##
+  ########################
+  
+    patch:
+      tags: 
+        - Student
+      parameters: 
+        - in: path
+          name: studentId
+          required: true
+          schema:
+            type: integer
+            example: 63845d0cbe895fdf791b1e86
+      responses:
+        200:
+          description: Returns the patched student
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        500:
+          $ref: '#/components/responses/500ApiError'
+  
+  ########################        
+  ## STUDENT STATISTICS ##
+  ########################
+  
+  /api/v1/students/students-stats/{year}:
+    get:
+      tags: 
+        - Student
+      parameters: 
+        - in: path
+          name: year
+          description: The year of a specific semester
+          required: true
+          schema:
+            type: integer
+            example: 2021
+      responses:
+        200:
+          description: Returns a grouped list of all students in a specific year and major
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student-Stats'
+        404:
+          $ref: '#/components/responses/404ApiResponds'                
+        500:
+          $ref: '#/components/responses/500ApiError'              
+components:
+  schemas:
+  
+  ##########################        
+  ##   STUDENT SCHEMA     ##
+  ##########################
+  
+    Student:
+      type: object
+      required:
+        - student
+        - education
+      properties:
+        student:
+          type: object
+          properties:
+            name:
+              type: string
+            birthday:
+              type: string
+              format: date
+              description: date of birth
+            email:
+              type: string
+              format: email
+            mobil:
+              type: number
+            gender:
+              type: string
+              enum:
+                - male
+                - female
+                - other
+            address:
+              type: object
+              properties:
+                street:
+                  type: string
+                city:
+                  type: string
+                zipCode:
+                  type: string
+        education:
+          type: object
+          required:
+            - name
+            - startDate
+            - endDate
+          properties:
+            name:
+              type: string
+              enum:
+                - datamatiker
+                - bachelor
+                - multimedia
+                - webdesign
+            startDate:
+              type: string
+              format: date
+            endDate:
+              type: string
+              format: date
+          example:
+            name: multimedia
+            startDate: 2022-08-01
+            endDate: 2024-06-31
+
+  ##########################        
+  ## STUDENT STATS SCHEMA ##
+  ##########################
+  
+    Student-Stats:
+        type: object
+        properties:
+          status:
+            type: string
+            example: sucess
+          data:
+            type: object
+            properties:
+              numberOfStudents:
+                type: number
+                example: 2
+              students:
+                type: array
+                items:
+                  type: string
+                  example: 
+                    - Jesenia Salisbury
+                    - Dick Robledo
+              education:
+                type: string
+                example: datamatiker
+        example:
+          status: success
+          data:
+            - numOfStudents: 2
+              students:
+                - Jesenia Salisbury
+                - Dick Robledo
+              education: datamatiker
+            - numOfStudents: 2
+              students:
+                - Alyssa Humes
+                - Wendi Macklin
+              education: multimedia
+            - numOfStudents: 2
+              students:
+                - Garret Irizarry
+                - Hobert Putnam
+              education: webdesign
+
+  ##########################        
+  ##      RESPONDES       ##
+  ########################## 
+  
+  responses:
+    201ApiResponds:
+      description: success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: success
+                example: success
+              data:
+                type: string
+                example: student object
+                description: persistet student object
+    204ApiResponds:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: success
+                example: success
+              data:
+                nullable: true
+                example: null
+    404ApiResponds:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: fail
+              message:
+                type: string
+                description: fail message
+    500ApiError:
+      description: This is an unexpected error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: error
+              message:
+                type: string
+                description: This is an error

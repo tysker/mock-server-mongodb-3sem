@@ -1,0 +1,57 @@
+# get all students
+GET localhost:3000/api/v1/students
+Accept: application/json
+
+###
+# get all stuendts group by education and year
+GET localhost:3000/api/v1/students/students-stats/2021
+Accept: application/json
+
+###
+
+# get student by id
+GET localhost:3000/api/v1/students/63832bec8c73087e700e6aba
+Accept: application/json
+
+###
+
+# post new student
+POST localhost:3000/api/v1/students
+content-type: application/json
+
+{
+  "student": {
+    "name": "Hans Jørgensen",
+    "birthday": "2000-4-12",
+    "email": "hans@mail.com",
+    "mobil": 654321,
+    "gender": "male",
+    "address": {
+      "street": "Kongevejen 6",
+      "city": "Copenhagen",
+      "zipCode": "1166"
+    }
+  },
+  "education": {
+    "name": "multimedia",
+    "startDate": "2022-08-01",
+    "endDate": "2024-06-31"
+  }
+}
+
+###
+
+# patch student
+PATCH localhost:3000/api/v1/students/636a0acd8b8717f00972776d
+Content-type: application/json
+
+{
+  "student.address.street": "Lyngby Hovedgade 25A"
+}
+
+###
+
+# delete student
+DELETE localhost:3000/api/v1/students/636a0acd8b8717f00972776d
+
+###

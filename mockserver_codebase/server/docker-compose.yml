@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongoDB
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'mongoadmin'
+      MONGO_INITDB_ROOT_PASSWORD: 'mongosecret'
+    volumes:
+      - ../mongoDBData:/data/db
+    networks:
+      - json_network
+  app:
+    image: tyskerdocker/jsonserver:v4
+    container_name: server
+    restart: unless-stopped
+    command: bash -c "npm install && npm run start:prod"
+    ports:
+      - '3000:3000'
+    networks:
+      - json_network
+networks:
+  json_network:
+    driver: bridge
